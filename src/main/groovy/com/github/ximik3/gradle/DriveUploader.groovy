@@ -1,4 +1,4 @@
-package com.ximik3.gradle
+package com.github.ximik3.gradle
 
 /**
  * Drive REST API v3 file uploader class

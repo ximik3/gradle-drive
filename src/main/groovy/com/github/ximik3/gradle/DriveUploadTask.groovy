@@ -1,4 +1,4 @@
-package com.ximik3.gradle
+package com.github.ximik3.gradle
 
 import com.android.build.gradle.api.ApkVariantOutput
 import com.android.build.gradle.api.ApplicationVariant

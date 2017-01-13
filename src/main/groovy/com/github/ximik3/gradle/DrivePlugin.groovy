@@ -1,4 +1,4 @@
-package com.ximik3.gradle
+package com.github.ximik3.gradle
 
 import com.android.build.gradle.AppPlugin
 import org.gradle.api.Plugin

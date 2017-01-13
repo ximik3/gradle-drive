@@ -1,4 +1,4 @@
-group 'com.ximik3'
+group 'com.github.ximik3'
 version '1.0'
 
 apply plugin: 'groovy'
