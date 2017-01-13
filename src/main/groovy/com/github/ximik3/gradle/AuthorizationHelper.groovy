@@ -18,7 +18,7 @@ class AuthorizationHelper {
     private static final String DEFAULT_KEYSTORE_PASSWORD = "notasecret"
     private static final Long ACCESS_TOKEN_EXPIRE_TIME_SEC = 5 * 60        // + 5 minutes
 
-    protected static DriveUploader authorize(DrivePluginExtension extension) throws IOException {
+    protected static AccessToken authorize(DrivePluginExtension extension) throws IOException {
         if (extension.serviceAccountEmail && extension.pk12File) {
             return authorizeWithServiceAccount(extension.serviceAccountEmail, extension.pk12File)
         }
@@ -36,7 +36,7 @@ class AuthorizationHelper {
      * @return
      * @throws IOException
      */
-    private static DriveUploader authorizeWithServiceAccount(String serviceAccountEmail, File pk12File)
+    private static AccessToken authorizeWithServiceAccount(String serviceAccountEmail, File pk12File)
             throws IOException {
 
         def keyStore = KeyStore.getInstance("PKCS12")
@@ -79,7 +79,6 @@ class AuthorizationHelper {
 
         def accessToken = new Gson().fromJson(sb.toString(), AccessToken.class)
 
-        return new DriveUploader(accessToken)
-//        return new DriveUploader()
+        return accessToken; 
     }
 }

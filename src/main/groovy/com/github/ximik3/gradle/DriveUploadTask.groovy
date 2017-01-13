@@ -19,8 +19,10 @@ class DriveUploadTask extends DefaultTask {
     @TaskAction
     upload() {
         if (uploader == null) {
-            uploader = AuthorizationHelper.authorize(extension)
+            AccessToken accessToken = AuthorizationHelper.authorize(extension);
             println 'Token from googleapis.com retrieved'
+
+	    uploader = new DriveUploader(accessToken);
         }
 
         variant.outputs
