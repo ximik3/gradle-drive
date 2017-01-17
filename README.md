@@ -80,7 +80,8 @@ Clone plugin project locally:
 Upload archives to local maven repo (`repo` by default (see [build.gradle](build.gradle))):
 
 ```bash
-> gradle-drive/gradlew uploadArchives
+> cd gradle-drive
+> ./gradlew uploadArchives
 ```
 
 Add local repository to your top level `build.gradle`:
