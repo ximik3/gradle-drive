@@ -38,7 +38,7 @@ You can also make your folder a folder with public access (less secure, not test
 
 ## Usage
 
-Add it to your buildscript dependencies: ***(Artifactory not working yet!)***
+Add it to your buildscript dependencies: ***(Artifactory not working yet! For temporary solution see below)***
 
 ```groovy
 buildscript {
@@ -68,6 +68,37 @@ The plugin creates the following tasks for you:
 Make sure to set a valid `signingConfig` for the release build type. Otherwise, there won't be a release APK and the uploadApkRelease won't be available.
 
 In case you are using product flavors you will get one of the above tasks for every flavor. E.g. `uploadApkQaRelease` or `uploadProductionRelease`.
+
+***Temporary artifactory solution!***
+
+Clone plugin project locally:
+
+```bash
+> git clone git@github.com:ximik3/gradle-drive.git
+```
+
+Upload archives to local maven repo (`repo` by default (see [build.gradle](build.gradle))):
+
+```bash
+> gradle-drive/gradlew uploadArchives
+```
+
+Add local repository to your top level `build.gradle`:
+
+```groovy
+buildscript {
+
+    repositories {
+        mavenCentral()
+        maven { url uri('path-to-repo-e.g.../gradle-drive/repo') }
+    }
+
+    dependencies {
+    	// ...
+        classpath 'com.github.ximik3.gradle:drive:1.0'
+    }
+}
+```
 
 ## Configuration
 
