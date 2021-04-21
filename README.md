@@ -1,3 +1,6 @@
+> **Important note:**
+> This project is no longer maintained by the author. Please check a more recent fork here: https://github.com/monsterbrain/gradle-drive with updated docs and remote maven artifactory setup.
+
 # gradle-drive
 
 Lightweight gradle plugin to upload your APK to the Google Drive. Needs the ```com.android.application``` plugin applied.
